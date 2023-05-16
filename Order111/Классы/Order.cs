@@ -1,0 +1,46 @@
+﻿using Order111;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.Contracts;
+using System.Linq;
+
+    
+namespace OrderGen.Domain
+{
+    public class Order
+    {
+        private List<OrderItem> orderItems= new List<OrderItem>();
+        private int id;
+        private int number;
+        private DateTime data;
+
+        public decimal Sum
+        {
+            get { return orderItems.Sum(s => s.Sum_Nds) ; }
+        }
+        public List<OrderItem> OrderItems
+        {
+            get { return orderItems; }
+        }
+        public int Number
+        {
+            get { return number; }
+            set { number = value; }
+        }
+        public Order()
+        {
+            Data = DateTime.Now;
+        }
+        [Key]
+        public int ID
+        {
+            get { return id; }
+            set
+            {
+                id = value;
+            }
+        }
+        public DateTime Data { get; set; }
+    }
+}
