@@ -1,13 +1,13 @@
-﻿using OrderGen.Domain;
+﻿using LibraryNet.Domain;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using static Order111.Классы.AbstractFabric;
+using static LibraryNet.Классы.AbstractFabric;
 
-namespace Order111.Классы
+namespace LibraryNet.Классы
 {
     
-    class OrderContext : DbContext 
+    public class OrderContext : DbContext 
     {
         public OrderContext()
             : base("DBConnection")

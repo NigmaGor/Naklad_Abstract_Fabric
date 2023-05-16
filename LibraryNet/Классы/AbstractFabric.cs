@@ -1,8 +1,8 @@
-﻿using OrderGen.Domain;
+﻿using LibraryNet.Domain;
 
-namespace Order111.Классы
+namespace LibraryNet.Классы
 {
-    internal class AbstractFabric
+    public class AbstractFabric
     {
         public interface IOrderFactory
         {

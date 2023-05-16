@@ -1,11 +1,11 @@
-﻿using Order111.Классы;
+﻿using LibraryNet.Классы;
 using System;
 using System.Windows.Forms;
 using System.Data.Entity;
-using OrderGen.Domain;
-using static Order111.Классы.AbstractFabric;
+using LibraryNet.Domain;
+using static LibraryNet.Классы.AbstractFabric;
 
-namespace Order111
+namespace WinForms
 {
     internal static  class Program
     {

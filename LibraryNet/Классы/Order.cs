@@ -1,12 +1,11 @@
-﻿using Order111;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Contracts;
 using System.Linq;
 
     
-namespace OrderGen.Domain
+namespace LibraryNet.Domain
 {
     public class Order
     {

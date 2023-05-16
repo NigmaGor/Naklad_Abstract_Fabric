@@ -1,11 +1,11 @@
-﻿using Order111.Классы;
-using OrderGen.Domain;
+﻿using LibraryNet.Классы;
+using LibraryNet.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Windows.Forms;
-using static Order111.Классы.Function;
+using static LibraryNet.Классы.Function;
 using static System.Data.Entity.Infrastructure.Design.Executor;
 using HtmlAgilityPack;
 using System.Web;
@@ -16,7 +16,7 @@ using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.ComponentModel;
 using System.Threading;
 
-namespace Order111
+namespace WinForms
 {
     //Код формы с товарами в выбранной накладной
     public partial class Naklad : Form

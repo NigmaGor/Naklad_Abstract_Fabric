@@ -1,4 +1,4 @@
-﻿namespace Order111
+﻿namespace WinForms
 {
     partial class Naklad
     {
