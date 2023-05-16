@@ -3,7 +3,7 @@ using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Contracts;
 
-namespace OrderGen.Domain
+namespace LibraryNet.Domain
 {
     public class OrderItem
     {
@@ -12,7 +12,10 @@ namespace OrderGen.Domain
         private string sepecification;
         private decimal count;
         private decimal price;
-        private decimal nds;      
+        private decimal nds;
+        private decimal total_sum;
+        private decimal rubl_nds;
+        private decimal sum_nds;
 
         private Order order;
         public Order Order
@@ -97,11 +100,11 @@ namespace OrderGen.Domain
         }
         public static bool IsValidNds(decimal value) => value >= 0.0M;
         [DisplayName("Сумма")]
-        public decimal Total_Sum { get { return Count * Price; } }
+        public decimal Total_Sum { get { return total_sum = Count * Price; } set { } }
         [DisplayName("НДС в рублях")]
-        public decimal Rubl_Nds { get { return Total_Sum / 100 * Nds; } }
+        public decimal Rubl_Nds { get { return rubl_nds = Total_Sum / 100 * Nds; } set { } }
         [DisplayName("Сумма с НДС")]
-        public decimal Sum_Nds { get { return Total_Sum + Rubl_Nds; } }
+        public decimal Sum_Nds { get { return sum_nds = Total_Sum + Rubl_Nds; } set { } }
 
     }
 }

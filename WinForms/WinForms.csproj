@@ -7,8 +7,8 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProjectGuid>{E25E0D7F-1E7F-48C9-8A97-22AB5C40E2E2}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>Order111</RootNamespace>
-    <AssemblyName>Order111</AssemblyName>
+    <RootNamespace>WinForms</RootNamespace>
+    <AssemblyName>WinForms</AssemblyName>
     <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -50,6 +50,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
@@ -117,10 +120,6 @@
     <Compile Include="Naklad.Designer.cs">
       <DependentUpon>Naklad.cs</DependentUpon>
     </Compile>
-    <Compile Include="Классы\AbstractFabric.cs" />
-    <Compile Include="Классы\Function.cs" />
-    <Compile Include="Классы\Order.cs" />
-    <Compile Include="Классы\OrderItem.cs" />
     <Compile Include="NakladList.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -129,7 +128,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Классы\OrderContext.cs" />
     <EmbeddedResource Include="Naklad.resx">
       <DependentUpon>Naklad.cs</DependentUpon>
     </EmbeddedResource>
@@ -144,6 +142,7 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
     <None Include="packages.config" />
     <None Include="Properties\DataSources\OrderGen.Domain.Order.datasource" />
@@ -172,6 +171,12 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryNet\LibraryNet.csproj">
+      <Project>{6fb9aae3-4959-4b05-a3b9-9a5bb784ee13}</Project>
+      <Name>LibraryNet</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

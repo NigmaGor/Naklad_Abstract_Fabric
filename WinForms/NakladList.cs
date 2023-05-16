@@ -5,13 +5,13 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using Order111.Классы;
-using OrderGen.Domain;
+using LibraryNet.Классы;
+using LibraryNet.Domain;
 using Org.BouncyCastle.Asn1.X509;
 using static System.Net.Mime.MediaTypeNames;
-using static Order111.Классы.AbstractFabric;
+using static LibraryNet.Классы.AbstractFabric;
 
-namespace Order111
+namespace WinForms
 {
     //Код главной формы (Список накладных)
     public partial class OrderGenMain : Form

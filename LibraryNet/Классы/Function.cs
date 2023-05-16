@@ -1,14 +1,11 @@
-﻿using OrderGen.Domain;
-using System;
-using System.Collections.Generic;
+﻿using LibraryNet.Domain;
 using System.ComponentModel;
-using System.IO;
-using System.Linq;
 using System.Reflection;
-using System.Web.UI.WebControls;
-using System.Windows.Forms;
-
-namespace Order111.Классы
+using HtmlAgilityPack;
+using System.Collections.Generic;
+using System;
+using System.IO;
+namespace LibraryNet.Классы
 {
     public class Function
     {

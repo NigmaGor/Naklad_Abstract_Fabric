@@ -1,4 +1,4 @@
-﻿namespace Order111
+﻿namespace WinForms
 {
     partial class OrderGenMain
     {
@@ -173,11 +173,11 @@
             // 
             // orderBindingSource
             // 
-            this.orderBindingSource.DataSource = typeof(OrderGen.Domain.Order);
+            this.orderBindingSource.DataSource = typeof(LibraryNet.Domain.Order);
             // 
             // orderItemBindingSource
             // 
-            this.orderItemBindingSource.DataSource = typeof(OrderGen.Domain.OrderItem);
+            this.orderItemBindingSource.DataSource = typeof(LibraryNet.Domain.OrderItem);
             // 
             // OrderGenMain
             // 
