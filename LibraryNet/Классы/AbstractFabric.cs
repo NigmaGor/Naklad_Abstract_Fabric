@@ -26,22 +26,7 @@ namespace LibraryNet.Классы
                 return new OrderItem { FK = order.Number, Order = order };
             }
         }
-        public interface INakladFactory
-        {
-            IOrderFactory CreateOrderFactory();
-            IOrderItemFactory CreateOrderItemFactory();
-        }
-        public class NakladFactory : INakladFactory
-        {
-            public IOrderFactory CreateOrderFactory()
-            {
-                return new NakladOrderFactory();
-            }
-            public IOrderItemFactory CreateOrderItemFactory()
-            {
-                return new NakladOrderItemFactory();
-            }
-        }
+
     }
 }
 

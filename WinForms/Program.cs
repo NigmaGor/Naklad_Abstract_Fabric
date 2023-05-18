@@ -22,7 +22,8 @@ namespace WinForms
             Application.SetCompatibleTextRenderingDefault(false);
 
             DB = new OrderContext();
-            DB.factory = new NakladFactory();//Создаем фабрику
+            DB.OrderFactory = new NakladOrderFactory();//Создаем фабрику
+            DB.ItemsFactory = new NakladOrderItemFactory();//Создаем фабрику
             DB.Database.CreateIfNotExists();
             DB.Order.Load();
             

@@ -15,7 +15,8 @@ namespace LibraryNet.Классы
 
         public DbSet<Order> Order { get; set; }  
         public DbSet<OrderItem> OrderItem { get; set; }
-        public INakladFactory factory;
+        public IOrderFactory OrderFactory;
+        public IOrderItemFactory ItemsFactory;
 
         public bool Delete_Tovar(OrderItem tovar)
         {
@@ -49,7 +50,7 @@ namespace LibraryNet.Классы
         {
             if (Order.FirstOrDefault(id => id.Number == number) != null) return false;
 
-            Order order = factory.CreateOrderFactory().CreateOrder(number);//Создаем накладную
+            Order order = OrderFactory.CreateOrder(number);//Создаем накладную
 
             Order.Add(order);
             SaveChanges();
@@ -57,7 +58,7 @@ namespace LibraryNet.Классы
         }
         public OrderItem Tovar_Create(Order order)
         {
-           var tovar = factory.CreateOrderItemFactory().CreateOrderItem(order);
+           var tovar = ItemsFactory.CreateOrderItem(order);
            order.OrderItems.Add(tovar);
            OrderItem.Add(tovar);
            SaveChanges();
