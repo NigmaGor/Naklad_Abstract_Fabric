@@ -3,18 +3,7 @@ using LibraryNet.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection;
 using System.Windows.Forms;
-using static LibraryNet.Классы.Function;
-using static System.Data.Entity.Infrastructure.Design.Executor;
-using HtmlAgilityPack;
-using System.Web;
-using System.Web.UI.HtmlControls;
-using System.IO;
-using System.Web.UI;
-using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
-using System.ComponentModel;
-using System.Threading;
 
 namespace WinForms
 {
@@ -36,18 +25,7 @@ namespace WinForms
         {
             InitializeComponent();
             this.o = o;
-            //Application.ThreadException += Application_ThreadException;
         }
-        //~Naklad() 
-        //{
-        //    Application.ThreadException -= Application_ThreadException;
-        //}
-
-        //private void Application_ThreadException(object sender, ThreadExceptionEventArgs e)
-        //{
-        //    MessageBox.Show(e.Exception.Message);
-        //}
-
         //Загрузка формы
         private void Naklad_Load(object sender, EventArgs e)
         {
@@ -61,23 +39,15 @@ namespace WinForms
                 comboBox1.Items.Add(item.HeaderText);
             }
         }
-
         //Кнопка ОК (Обновление базы) 
         private void DataBaseUpdate_Click(object sender, EventArgs e)
         {
-            //foreach(DataGridViewRow row in dataGridView1.Rows)
-            //{
-            //    var order = 
-            //    o.OrderItems[o.OrderItems.FindIndex(id => id.ID == ((OrderItem)row.DataBoundItem).ID)] = (OrderItem)row.DataBoundItem;
-            //    Program.DB.OrderItem.ToList()[Program.DB.OrderItem.ToList().FindIndex(id => id.ID == ((OrderItem)row.DataBoundItem).ID)] = (OrderItem)row.DataBoundItem;
-            //}
             if (IsSearch)
                 Update(f.Search(comboBox1.Text, o.OrderItems, textBox3.Text));
             Update(o.OrderItems);
             MessageBox.Show("База обновлена");
             Program.DB.SaveChanges();
         }
-
         //Кнопка Удалить товар
         private void DeleteTovar_Click(object sender, EventArgs e)
         {
@@ -88,7 +58,6 @@ namespace WinForms
             else Update(o.OrderItems);
             MessageBox.Show("Товар удален");
         }
-
         //Ввод в textbox3 только цифр, если это не название товара (поиск)
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {

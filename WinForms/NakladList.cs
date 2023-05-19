@@ -1,15 +1,8 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data.Entity;
 using System.Linq;
-using System.Web.UI.WebControls;
 using System.Windows.Forms;
-using LibraryNet.Классы;
 using LibraryNet.Domain;
-using Org.BouncyCastle.Asn1.X509;
-using static System.Net.Mime.MediaTypeNames;
-using static LibraryNet.Классы.AbstractFabric;
 
 namespace WinForms
 {

@@ -1,13 +1,13 @@
-﻿using System;
+﻿using LibraryNet.Классы;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.Contracts;
 
 namespace LibraryNet.Domain
 {
-    public class OrderItem
+    public class OrderItem : IOrderItem
     {
-        private int fk; 
+        private int fk;
         private int id;
         private string sepecification;
         private decimal count;
@@ -16,7 +16,6 @@ namespace LibraryNet.Domain
         private decimal total_sum;
         private decimal rubl_nds;
         private decimal sum_nds;
-
         private Order order;
         public Order Order
         {
@@ -38,9 +37,9 @@ namespace LibraryNet.Domain
         [DisplayName("Название")]
         public string Sepecification
         {
-          
+
             get { return sepecification; }
-          
+
             set
             {
                 //Проверка строки на пустоту (IsValidSpecification)
@@ -52,7 +51,7 @@ namespace LibraryNet.Domain
             }
         }
         //Проверка строки на пустоту
-        public static bool IsValidSepecification(string value)=>!string.IsNullOrWhiteSpace(value);
+        public static bool IsValidSepecification(string value) => !string.IsNullOrWhiteSpace(value);
 
         [DisplayName("Количество")]
         public decimal Count//Получение/Установка Количества
@@ -71,7 +70,7 @@ namespace LibraryNet.Domain
             }
         }
         //Проверка количества (не может быть <= 0)
-        public static bool IsValidCount(decimal value)=>value >= 0.0M;
+        public static bool IsValidCount(decimal value) => value >= 0.0M;
 
         [DisplayName("Цена")]
         public decimal Price
@@ -84,8 +83,7 @@ namespace LibraryNet.Domain
                 price = value;
             }
         }
-
-        public static bool IsValidPrice(decimal value)=>value >= 0.0M;
+        public static bool IsValidPrice(decimal value) => value >= 0.0M;
 
         [DisplayName("НДС")]
         public decimal Nds
@@ -105,6 +103,5 @@ namespace LibraryNet.Domain
         public decimal Rubl_Nds { get { return rubl_nds = Total_Sum / 100 * Nds; } set { } }
         [DisplayName("Сумма с НДС")]
         public decimal Sum_Nds { get { return sum_nds = Total_Sum + Rubl_Nds; } set { } }
-
     }
 }
