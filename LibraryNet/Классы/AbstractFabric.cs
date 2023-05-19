@@ -1,4 +1,4 @@
-﻿using LibraryNet.Domain;
+using LibraryNet.Domain;
 using System.Collections.Generic;
 using System;
 

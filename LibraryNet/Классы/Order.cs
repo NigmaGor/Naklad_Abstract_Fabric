@@ -38,6 +38,6 @@ namespace LibraryNet.Domain
                 id = value;
             }
         }
-        public DateTime Data { get; set; }
+        public DateTime Data { get { return data; } set { data = value; } }
     }
 }
