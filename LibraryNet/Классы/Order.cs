@@ -1,22 +1,20 @@
-﻿using System;
+﻿using LibraryNet.Классы;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Diagnostics.Contracts;
 using System.Linq;
 
-    
 namespace LibraryNet.Domain
 {
-    public class Order
+    public class Order : IOrder
     {
-        private List<OrderItem> orderItems= new List<OrderItem>();
+        private List<OrderItem> orderItems = new List<OrderItem>();
         private int id;
         private int number;
         private DateTime data;
-
         public decimal Sum
         {
-            get { return orderItems.Sum(s => s.Sum_Nds) ; }
+            get { return orderItems.Sum(s => s.Sum_Nds); }
         }
         public List<OrderItem> OrderItems
         {

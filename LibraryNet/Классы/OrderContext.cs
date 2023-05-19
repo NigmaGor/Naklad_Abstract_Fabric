@@ -2,24 +2,20 @@
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
-using static LibraryNet.Классы.AbstractFabric;
 
 namespace LibraryNet.Классы
 {
-    
-    public class OrderContext : DbContext 
+    public class OrderContext : DbContext
     {
         public OrderContext()
             : base("DBConnection")
         { }
-
-        public DbSet<Order> Order { get; set; }  
+        public DbSet<Order> Order { get; set; }
         public DbSet<OrderItem> OrderItem { get; set; }
-        public INakladFactory factory;
-
+        public NakladFactory factory;
         public bool Delete_Tovar(OrderItem tovar)
         {
-            if(tovar == null) return false;
+            if (tovar == null) return false;
             tovar.Order.OrderItems.Remove(tovar);
             OrderItem.Remove(tovar);
             SaveChanges();
@@ -45,23 +41,23 @@ namespace LibraryNet.Классы
             SaveChanges();
             return true;
         }
-        public bool Order_Add(int number) 
+        public bool Order_Add(int number)
         {
             if (Order.FirstOrDefault(id => id.Number == number) != null) return false;
 
-            Order order = factory.CreateOrderFactory().CreateOrder(number);//Создаем накладную
+            IOrder order = factory.CreateOrder(number);//Создаем накладную
 
-            Order.Add(order);
+            Order.Add((Order)order);
             SaveChanges();
             return true;
         }
         public OrderItem Tovar_Create(Order order)
         {
-           var tovar = factory.CreateOrderItemFactory().CreateOrderItem(order);
-           order.OrderItems.Add(tovar);
-           OrderItem.Add(tovar);
-           SaveChanges();
-           return tovar;
+            IOrderItem tovar = factory.CreateOrderItem(order);
+            order.OrderItems.Add((OrderItem)tovar);
+            OrderItem.Add((OrderItem)tovar);
+            SaveChanges();
+            return (OrderItem)tovar;
         }
         public List<Order> SearchNakladInSum(decimal sum)
         {
