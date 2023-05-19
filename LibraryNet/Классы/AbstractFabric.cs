@@ -27,6 +27,22 @@ namespace LibraryNet.Классы
             }
         }
 
+        public interface INakladFactory
+        {
+            IOrderFactory CreateOrderFactory();
+            IOrderItemFactory CreateOrderItemFactory();
+        }
+        public class NakladFactory : INakladFactory
+        {
+            public IOrderFactory CreateOrderFactory()
+            {
+                return new NakladOrderFactory();
+            }
+            public IOrderItemFactory CreateOrderItemFactory()
+            {
+                return new NakladOrderItemFactory();
+            }
+        }
     }
 }
 
